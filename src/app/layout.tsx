@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import "@/styles/style.css"; // CSS cũ của bạn
-import "@fortawesome/fontawesome-free/css/all.min.css"; // Font Awesome
+import "@/styles/style.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+import { CartProvider } from "@/app/context/CartContext";
+
 
 export const metadata: Metadata = {
   title: "SD Parfum",
   description: "Ecommerce perfume shop built with Next.js",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi">
       <head>
@@ -22,7 +21,11 @@ export default function RootLayout({
         <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png" />
         <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png" />
       </head>
-      <body>{children}</body>
+      <body>
+        <CartProvider>
+          {children}
+        </CartProvider>
+      </body>
     </html>
   );
 }
