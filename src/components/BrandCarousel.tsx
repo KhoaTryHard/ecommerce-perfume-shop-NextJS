@@ -7,7 +7,7 @@ export default function BrandCarousel({
   brands,
   onPick,                       // callback prop
   itemWidth = 200,              // optional prop
-  children,                     // children prop (VD: nút mở filter)
+  children,                     // children prop (VD: nut mo filter)
 }: {
   brands: Brand[];
   onPick?: (brand: string) => void;
